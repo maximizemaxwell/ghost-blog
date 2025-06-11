@@ -39,6 +39,9 @@ jobs:
             DB_PASSWORD=${{ secrets.DB_PASSWORD }}
             DB_HOST=${{ secrets.DB_HOST }}
             URL=https://${{ secrets.DOMAIN }}
+            MAILGUN_DOMAIN=${{ secrets.MAILGUN_DOMAIN }}
+            MAILGUN_API=${{ secrets.MAILGUN_API }}
+            MAIL_FROM=${{ secrets.MAIL_FROM }}
             EOL
 
             # Update nginx configuration

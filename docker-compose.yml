@@ -13,5 +13,9 @@ services:
       database__connection__user: ghost-user
       database__connection__password: ${DB_PASSWORD}
       database__connection__database: ghost_db
+      mail__transport: mailgun
+      mail__options__domain: ${MAILGUN_DOMAIN}
+      mail__options__apiKey: ${MAILGUN_API_KEY}
+      mail__from: ${MAIL_FROM}
     volumes:
       - ./content:/var/lib/ghost/content
