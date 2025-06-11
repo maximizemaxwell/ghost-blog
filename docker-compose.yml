@@ -9,7 +9,7 @@ services:
     environment:
       url: https://${DOMAIN}
       database__client: mysql
-      database__connection__host: host.docker.internal
+      database__connection__host: ${DB_HOST_IP}
       database__connection__user: ghost-user
       database__connection__password: ${DB_PASSWORD}
       database__connection__database: ghost_db
