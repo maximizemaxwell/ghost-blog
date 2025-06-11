@@ -36,8 +36,8 @@ chmod +x setup-server.sh
 
 | Secret Name | Description | Example |
 |------------|-------------|---------|
-| SSH_HOST | Your server's IP or domain | 192.168.1.100 |
-| SSH_USER | SSH username | ubuntu |
+| SSH_HOST | Your server's IP or domain | your-server-ip |
+| SSH_USER | SSH username | your-username |
 | SSH_KEY | Private SSH key (base64 encoded) | See below |
 | DOMAIN | Your blog domain | blog.example.com |
 | DB_PASSWORD | MariaDB password | strong-password |
@@ -45,6 +45,10 @@ chmod +x setup-server.sh
 
 #### How to encode SSH key:
 ```bash
+# For AWS Lightsail or EC2 keys:
+cat your-key-name.pem | base64 -w 0
+
+# For regular SSH keys:
 cat ~/.ssh/id_rsa | base64 -w 0
 ```
 

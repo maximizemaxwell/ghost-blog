@@ -21,35 +21,35 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             set -e
-            
+
             # Create directory if not exists
             mkdir -p ~/ghost-blog
             cd ~/ghost-blog
-            
+
             # Clone or pull repository
             if [ ! -d .git ]; then
               git clone https://github.com/${{ github.repository }} .
             else
               git pull origin main
             fi
-            
+
             # Create .env file
             cat > .env << EOL
             DOMAIN=${{ secrets.DOMAIN }}
             DB_PASSWORD=${{ secrets.DB_PASSWORD }}
             EOL
-            
+
             # Update nginx configuration
             sudo cp nginx/ghost.conf /etc/nginx/sites-available/ghost
             sudo sed -i "s/\${DOMAIN}/${{ secrets.DOMAIN }}/g" /etc/nginx/sites-available/ghost
             sudo ln -sf /etc/nginx/sites-available/ghost /etc/nginx/sites-enabled/
             sudo nginx -t && sudo systemctl reload nginx
-            
+
             # Deploy with docker-compose
             docker-compose down || true
             docker-compose pull
             docker-compose up -d
-            
+
             # Setup SSL if not already done
             if ! sudo test -d "/etc/letsencrypt/live/${{ secrets.DOMAIN }}"; then
               sudo certbot --nginx --non-interactive --agree-tos \
