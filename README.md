@@ -114,4 +114,4 @@ Ensure MariaDB is running and credentials in `.env` match database setup.
 
 ## License
 
-MIT
+GPL-3.0 License
