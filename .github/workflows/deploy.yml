@@ -28,7 +28,7 @@ jobs:
 
             # Clone or pull repository
             if [ ! -d .git ]; then
-              git clone https://github.com/${{ github.repository }} .
+              git clone git@github.com:${{ github.repository }} .
             else
               git pull origin main
             fi
@@ -38,11 +38,12 @@ jobs:
             DOMAIN=${{ secrets.DOMAIN }}
             DB_PASSWORD=${{ secrets.DB_PASSWORD }}
             DB_HOST=${{ secrets.DB_HOST }}
+            URL=https://${{ secrets.DOMAIN }}
             EOL
 
             # Update nginx configuration
             sudo cp nginx/ghost.conf /etc/nginx/sites-available/ghost
-            sudo sed -i "s/\${DOMAIN}/${{ secrets.DOMAIN }}/g" /etc/nginx/sites-available/ghost
+            sudo sed -i "s|{{DOMAIN}}|${{ secrets.DOMAIN }}|g" /etc/nginx/sites-available/ghost
             sudo ln -sf /etc/nginx/sites-available/ghost /etc/nginx/sites-enabled/
             sudo nginx -t && sudo systemctl reload nginx
 
