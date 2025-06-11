@@ -7,7 +7,7 @@ services:
     ports:
       - 2368:2368
     environment:
-      url: https://${DOMAIN}
+      url: ${URL}
       database__client: mysql
       database__connection__host: ${DB_HOST}
       database__connection__user: ghost-user
