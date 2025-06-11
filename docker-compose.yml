@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  ghost:
+    image: ghost:5-alpine
+    restart: always
+    ports:
+      - 2368:2368
+    environment:
+      url: https://${DOMAIN}
+      database__client: mysql
+      database__connection__host: 127.0.0.1
+      database__connection__user: ghost-user
+      database__connection__password: ${DB_PASSWORD}
+      database__connection__database: ghost_db
+    volumes:
+      - ./content:/var/lib/ghost/content

@@ -1,0 +1,32 @@
+# Environment variables
+.env
+.env.*
+
+# Ghost content
+content/data/
+content/logs/
+content/adapters/
+content/images/
+
+# SSH keys
+key.pem
+*.pem
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# SSL certificates
+*.key
+*.crt
+
+# Backup files
+*.bak
+*~
