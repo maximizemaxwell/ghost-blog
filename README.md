@@ -54,13 +54,22 @@ cat ~/.ssh/id_rsa | base64 -w 0
 
 ### 3. Deploy
 
-Push to the main branch to trigger automatic deployment:
+You can deploy in two ways:
+
+#### Automatic deployment
+Push to the main branch:
 
 ```bash
 git add .
 git commit -m "Initial deployment"
 git push origin main
 ```
+
+#### Manual deployment
+1. Go to Actions tab in your GitHub repository
+2. Select "Deploy Ghost Blog" workflow
+3. Click "Run workflow" button
+4. Select branch and click "Run workflow"
 
 ## Project Structure
 
