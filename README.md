@@ -102,12 +102,12 @@ cd ~/ghost-blog
 
 ### Check logs
 ```bash
-docker-compose logs -f ghost
+docker compose logs -f ghost
 ```
 
 ### Restart services
 ```bash
-docker-compose restart
+docker compose restart
 sudo systemctl restart nginx
 ```
 

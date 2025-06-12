@@ -12,7 +12,6 @@ sudo apt upgrade -y
 echo "Installing required packages..."
 sudo apt install -y \
     docker.io \
-    docker-compose \
     nginx \
     mariadb-server \
     certbot \

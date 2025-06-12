@@ -21,9 +21,9 @@ git pull origin main
 
 # Update docker containers
 echo "Updating Docker containers..."
-docker-compose down
-docker-compose pull
-docker-compose up -d
+docker compose down
+docker compose pull
+docker compose up -d
 
 # Wait for Ghost to start
 echo "Waiting for Ghost to start..."

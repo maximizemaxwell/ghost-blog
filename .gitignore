@@ -1,7 +1,7 @@
 # Environment variables
 .env
 .env.*
-
+CLAUDE.md
 # Ghost content
 content/data/
 content/logs/
