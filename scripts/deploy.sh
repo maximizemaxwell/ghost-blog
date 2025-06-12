@@ -17,7 +17,11 @@ fi
 
 # Pull latest changes
 echo "Pulling latest changes..."
+# Stash any local changes to tracked files
+git stash
 git pull origin main
+# Apply stashed changes if any (will fail silently if no stash)
+git stash pop 2>/dev/null || true
 
 # Update docker containers
 echo "Updating Docker containers..."
