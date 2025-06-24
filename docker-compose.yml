@@ -12,8 +12,7 @@ services:
       database__connection__password: ${DB_PASSWORD}
       database__connection__database: ghost_db
 
-
-     mail__transport: SMTP
+      mail__transport: SMTP
       mail__from: ${MAIL_FROM}
       mail__options__service: SMTP
       mail__options__host: smtp.gmail.com
@@ -26,7 +25,14 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:2368/ghost/api/admin/site/"]
+      test:
+        [
+          "CMD",
+          "wget",
+          "--spider",
+          "-q",
+          "http://localhost:2368/ghost/api/admin/site/",
+        ]
       interval: 30s
       timeout: 10s
       retries: 5
